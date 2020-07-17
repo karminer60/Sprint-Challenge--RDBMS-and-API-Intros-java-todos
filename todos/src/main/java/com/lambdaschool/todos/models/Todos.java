@@ -12,16 +12,16 @@ public class Todos
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long todoid;
     private String description;
-    private boolean completed;
+
 
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)
     private User user;
 
-    public Todos( String description, boolean completed, User user) {
+    public Todos( User user, String description) {
 
         this.description = description;
-        this.completed = completed;
+
         this.user = user;
     }
 
@@ -46,13 +46,7 @@ public class Todos
         this.description = description;
     }
 
-    public boolean isCompleted() {
-        return completed;
-    }
 
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
 
     public User getUser() {
         return user;
