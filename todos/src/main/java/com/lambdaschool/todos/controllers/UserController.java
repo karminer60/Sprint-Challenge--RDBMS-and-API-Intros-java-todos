@@ -119,7 +119,7 @@ public class UserController
     @GetMapping(value = "/users/todos", produces = {"application/json"})
     public ResponseEntity<?> getUserNameCountTodos()
     {
-        List<UserNameCountTodos> myList = userService.getCountUserTodos();
+        List<UserNameCountTodos> myList = userService.getCountUserTodo();
         return new ResponseEntity<>(myList, HttpStatus.OK);
     }
 }

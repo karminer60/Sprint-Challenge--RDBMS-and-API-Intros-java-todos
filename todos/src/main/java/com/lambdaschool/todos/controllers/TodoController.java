@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/todos")
-public class TodosController
+public class TodoController
 {
     /**
      * Using the Todos service to process user, todos combinations data
      */
     @Autowired
-    TodoService todosService;
+    TodoService todoService;
 
     /**
      * Given the todo id, mark the task as complete
@@ -29,7 +29,7 @@ public class TodosController
     @PatchMapping(value = "/todo/{todoid}")
     public ResponseEntity<?> completeTodo(@PathVariable long todoid)
     {
-        todosService.markComplete(todoid);
+        todoService.markComplete(todoid);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

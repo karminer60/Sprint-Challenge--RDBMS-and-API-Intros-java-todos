@@ -1,11 +1,13 @@
 package com.lambdaschool.todos.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "todos" )
+@Table(name = "todo" )
 public class Todo
 {
     @Id
@@ -16,6 +18,7 @@ public class Todo
 
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)
+    @JsonIgnoreProperties("todo")
     private User user;
 
     public Todo(User user, String description) {
