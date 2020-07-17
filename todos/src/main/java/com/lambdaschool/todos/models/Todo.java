@@ -6,26 +6,27 @@ import java.util.Set;
 
 @Entity
 @Table(name = "todos" )
-public class Todos
+public class Todo
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long todoid;
     private String description;
-
+    private boolean completed=false;
 
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)
     private User user;
 
-    public Todos( User user, String description) {
+    public Todo(User user, String description) {
 
         this.description = description;
 
         this.user = user;
+
     }
 
-    public Todos()
+    public Todo()
     {
         //default constructor
     }
@@ -54,5 +55,13 @@ public class Todos
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }
