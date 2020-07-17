@@ -44,6 +44,11 @@ public class User extends Auditable
     @Email
     private String primaryemail;
 
+
+    @OneToMany(mappedBy = "user",
+    cascade = CascadeType.ALL,
+    orphanRemoval = true)
+    private List<Todos> todos = new ArrayList<>();
     /**
      * Default constructor used primarily by the JPA.
      */
